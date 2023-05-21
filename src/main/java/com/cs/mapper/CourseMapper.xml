@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cs.mapper.CourseMapper">
+    <select id="Test01" parameterType="Integer" resultType="com.cs.pojo.Course">
+        select * from c_course where id=#{id}
+    </select>
+    <select id="Test02" resultType="com.cs.pojo.Course">
+        select * from c_course,s_school where c_course.sid=s_school.id and s_school.id=1
+    </select>
+    <update id="Test03" parameterType="com.cs.pojo.Course">
+        update c_course set hours=#{hours} where id=#{id}
+    </update>
+    <insert id="Test04" parameterType="com.cs.pojo.Course">
+        insert into c_course(id,name,hours,sid)values(#{id},#{name},#{hours},#{sid})
+    </insert>
+    <select id="Test05" resultType="com.cs.pojo.Course">
+        select * from c_course
+    </select>
+</mapper>
